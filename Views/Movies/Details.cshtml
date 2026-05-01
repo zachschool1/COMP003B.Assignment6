@@ -1,0 +1,37 @@
+﻿@model COMP003B.Assignment6.Models.Movies
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Movies</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+    </dl>
+</div>
+<div class="col-md-4">
+    <h4>Actors</h4>
+    <ul>
+        <li>
+            @foreach (Actor actor in ViewBag.Actor)
+            {
+                <li>@actor.Name</li>
+            }
+        </li>
+    </ul>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.MoviesId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
